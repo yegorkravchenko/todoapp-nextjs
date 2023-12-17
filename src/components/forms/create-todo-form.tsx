@@ -1,6 +1,7 @@
 import { createTodoAction } from '@/app/actions';
+import CustomButton from '@/components/ui/custom-button';
 
-export default function createTodoForm() {
+export default function CreateTodoForm() {
   return (
     <form
       className="border-b border-solid border-white py-6 px-3"
@@ -13,9 +14,7 @@ export default function createTodoForm() {
         placeholder="What do you have to do?"
         autoComplete="off"
       />
-      <button className="border border-solid border-white rounded ml-4 px-2 py-1 hover:bg-gradient-to-br from-slate-50 to-slate-300 hover:text-black">
-        Create todo
-      </button>
+      <CustomButton>Create todo</CustomButton>
     </form>
   );
 }
