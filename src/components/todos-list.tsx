@@ -1,7 +1,10 @@
-import { db } from '@/db';
+import { getAllTodos } from '@/data-access/todos';
+import { unstable_noStore } from 'next/cache';
 
 export default async function TodosList() {
-  const todos = await db.query.todos.findMany();
+  unstable_noStore();
+
+  const todos = await getAllTodos();
 
   return (
     <ul className="mt-12">
