@@ -13,7 +13,7 @@ export default function CustomButton({
   return (
     <button
       className={twMerge(
-        'border border-solid border-white rounded ml-4 px-2 py-1 hover:bg-gradient-to-br from-slate-50 to-slate-300 hover:text-black',
+        'border border-solid border-white rounded px-2 py-1 hover:bg-gradient-to-br from-slate-50 to-slate-300 hover:text-black',
         className
       )}
       {...props}

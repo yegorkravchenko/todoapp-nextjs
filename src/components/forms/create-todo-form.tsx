@@ -14,7 +14,7 @@ export default function CreateTodoForm() {
         placeholder="What do you have to do?"
         autoComplete="off"
       />
-      <CustomButton>Create todo</CustomButton>
+      <CustomButton className="ml-4">Create todo</CustomButton>
     </form>
   );
 }
