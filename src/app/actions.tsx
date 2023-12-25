@@ -5,10 +5,38 @@ import { todos } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import { revalidatePath } from 'next/cache';
 
-export async function createTodoAction(formData: FormData) {
+export type FormState = {
+  text: string;
+  errors: {
+    text: string | undefined;
+  };
+};
+
+export async function createTodoAction(
+  previousState: FormState,
+  formData: FormData
+) {
   const text = formData.get('text') as string;
-  await db.insert(todos).values({ text });
+
+  if (!text) {
+    return {
+      text,
+      errors: {
+        text: 'text must be defined',
+      },
+    };
+  }
+
+  await db.insert(todos).values({
+    text,
+  });
   revalidatePath('/');
+  return {
+    text: '',
+    errors: {
+      text: undefined,
+    },
+  };
 }
 
 export async function deleteTodoAction(id: number) {
